@@ -1,52 +1,367 @@
-<!doctype html>
 <html>
-	<head>
+        <head>
+                <link rel="stylesheet" href="css/reveal.css">
+                <link rel="stylesheet" href="css/theme/sky.css">
+               		<link rel="stylesheet" href="lib/css/arduino-light.css">
 
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="chrome=1">
-		<title>reveal.js - The HTML Presentations Framework</title>
+        </head>
+        <body>
+                <div class="reveal">
+                        <div class="slides">
+                        <section>
+                           <h2>Jumpstart your projects with coockiecutter</h2>
+                            <aside class="notes">
+                              <li>talk slowly!!!!!!</li>
+                              <li>I would like to thank the organizers</li>
+                              <li>chair pyzim</li>
+                              <li>django indaba</li>
+                              <li>freelancer in django exploring emberjs</li>
+                              <li>if there is anyone in this room looking looking for someone with these skill please i want to talk to you</li>
+                            </aside>
+                               <p>by</p>
+                                  <p>Humphrey Butau</p>
+                        </section>
+                        <section>
+                          <h2>Have you ever desired a tool that can automate all the boring tasks you repeat when starting a python project?</h2>
+                              <aside class="notes">
+                                <li>wouldnt it be great if we had a tool that can help us automate project creation?</li>
+                              <li>we repeat the same things over and over again</li>
+                              <li>when working with differnt technilogies</li>
+                              <li>we can make a template for teams</li>
+                              <li>Starting a project involving several technologies can be a bit of a hassle. Using cookiecutter, we're able 
+                                to start our project, download all of our dependencies and install our python and other environments in 
+                                one command</li>
+                            </aside>
 
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/main.css">
+                        </section>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+                        <section>
+                          <h2>Do you want to break free from cargo cult programming?</h2>
+                          <aside class="notes">
+                              <li>cargo cult is when we take configurations from other peoples code</li>
+                              <li>we can break away from this by using templates made by experts</li>
+                              <li>by so doing we can achieve bps</li>
+                            </aside>
 
-		<!--[if lt IE 9]>
-		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+                        </section>
 
-	</head>
-	<body>
-		<div class="wrapper">
+                        <section>
+                         <img data-src="css/img/cargo.jpg">
+                        </section>
 
-			<header>
+                        <section>
+                          <h2>Cookiecutter!</h2>
+                              <aside class="notes">
+                              <li>cookicutter is a command line project templating tool written in python</li>
+                            </aside>
 
-				<h1>reveal.js</h1>
-				<p>
-					The HTML Presentation Framework &mdash; Site coming soon
-				</p>
+                          </section>
 
-			</header>
+                        <section>
+                           <section>
 
-			<footer>
+                              <section>
+                             <h3>What does cookiecutter do?</h3></section>
+                                <ul>
+                                  <li> <p class="fragment highlight-current-blue">It takes a cookiecutter compliant template and rolls a project for you</p></li>
+                                  <li> <p class="fragment highlight-current-red">It does that by asking a set of questions specified in your template</p></li>
+                                 </ul>
+                              </section>
+                              </section>
 
-				<p>
-					<a href="http://lab.hakim.se/reveal-js">Try the demo</a>
-					<a href="https://github.com/hakimel/reveal.js/releases">Download</a>
-				</p>
+                          <section>
+                            <section>
+                              <h2>Features?</h2>
+                              </section>
+                              <section>
+                                <p class="fragment current-visible"> Cookiecutter runs on Mac, Windows and Linux</p>
+                                <p class="fragment current-visible">Easy to work with from the command line</p>
+                                <p class="fragment current-visible">Templates can be any language</p>
+                                <p class="fragment current-visible">Every file type is templatable (using Jinja2)</p>
+                                <p class="fragment current-visible">You can add hooks to automate project creation further more</p>
+                                <p class="fragment current-visible">Directory names and filenames can be templated</p>
+                                <p class="fragment current-visible">supports unlimited level of directort nesting</p>
 
-			</footer>
+                                </section>
+                                </section>
+                          <section>
+                            <section>
+                            <h2>Getting started with cookiecutter</h2>
+                              <aside class="notes">
+                                <li>make sure your version is >= to 1.5</li>
+                                </aside>
+                              </section>
+                              <section>
+                                  You can start by installing it in your virtual environment
+                                <pre><code class=bash data-trim>
+                                  pip install cookiecuttter
+                                  </pre></code>
+                                      or on Debian systems you could:
+                                <pre><code class=bash data-trim>
+                                  sudo apt-get install cookiecutter
+                                  </pre></code>
+                                      or for Mac:
+                                <pre><code class=bash data-trim>
+                                   brew install cookiecutter
+                                  </pre></code>
+                                </section>
+                                <section>
+                                  <aside class="notes">
+                                    <li>you can use bit bucket and mecurial too</li>
+                                      </aside>
+                                   you can start with templates on github  like so:
+                                  <pre><code class=bash data-trim>
+                                    $ cookiecutter https://github.com/audreyr/cookiecutter-pypackage
+                                    </pre></code>
+                                      or by using shortcuts:
+                                  <pre><code class=bash data-trim>
+                                    $ cookiecutter gh:audreyr/cookiecutter-pypackage
+                                    </pre></code>
+                                      </section>
+                                      <section>
+                                          you can also specify local cookiecutters:
+                                        <pre><code class=bash data-trim>
+                                            $ cookiecutter ~/.cookiecutters/cookiecutter-pypackage/
+                                            $ cookicutter cookiecutter-pypackage
+                                            </pre></code>
+                                        </section>
+                                      <section>
+                                        <pre><code class=bash data-trim>
+                                          (pycon) ~  $ python
+                                          Python 3.5.2 (default, Nov 17 2016, 17:05:23)
+                                          [GCC 5.4.0 20160609] on linux
+                                          Type "help", "copyright", "credits" or "license" for more information.
 
-		</div>
+                                          >>> from cookiecutter.main import cookiecutter
+                                          >>> cookiecutter("cookiecutter-pypackage")
+                                          </pre></code>
+                                          </section>
+                                            <section>
+                                              <h3>jumpstarting a project with cookiecutter</h3>
+                                                <aside class="notes">
+                                                  <li>it is going to prompt us for values which we provide by typing</li>
+                                                  <li>if we dont provide anything by just hitting return it will provide defaults</li>
+                                                </aside>
+                                              <pre><code class=bash data-trim contenteditable>
+                                                  (pyladies) ~/dev/pyconza (master) $ cookiecutter cookiecutter-pypackage
+                                                  full_name [Audrey Roy Greenfeld]: Example User
+                                                  email [aroy@alum.mit.edu]: user@example.com
+                                                  github_username [audreyr]: user
+                                                  project_name [Python Boilerplate]: pyconza_project
+                                                  project_slug [pyconza_project]:
+                                                  project_short_description [Python Boilerplate contains all the boilerplate you need to create a Python package.]: A pyconza project to demonstrate how awesome cookiecutter is
+                                                  pypi_username [user]:
+                                                  version [0.1.0]:
+                                                  use_pytest [n]: y
+                                                  use_pypi_deployment_with_travis [y]: y
+                                                  Select command_line_interface:
+                                                  1 - Click
+                                                  2 - No command-line interface
+                                                  Choose from 1, 2 [1]: 2
+                                                  create_author_file [y]:
+                                                  Select open_source_license:
+                                                  1 - MIT license
+                                                  2 - BSD license
+                                                  3 - ISC license
+                                                  4 - Apache Software License 2.0
+                                                  5 - GNU General Public License v3
+                                                  6 - Not open source
+                                                  Choose from 1, 2, 3, 4, 5, 6 [1]: 1
+                                                  (pyladies) ~/dev/pyconza (master) $ cd pyconza_project/
+                                                </pre></code>
+                                              </section>
+                                              <section>
+                                                <pre><code  data-trim >
+                                                    (pyladies) ~/dev/pyconza/pyconza_project (master) $ ls
+                                                    AUTHORS.rst       docs         LICENSE   MANIFEST.in      README.rst            setup.cfg  tests    travis_pypi_setup.py
+                                                    CONTRIBUTING.rst  HISTORY.rst  Makefile  pyconza_project  requirements_dev.txt  setup.py   tox.ini
+                                                  (pyladies) ~/dev/pyconza/pyconza_project (master) $ tree
+                                                 </pre></code>
+                                                </section>
+                                            </section>
+                                        <section>
+                                          <section>
+                                            <b>Inside a cookiecutter template</b>
+                                            </section>
+                                            <section>
+                                              <pre><code class=bash data-trim>
+                                              |
+                                              |
+                                              _____cookiecutter.json
+                                              |
+                                              |
+                                              _____{{cookiecutter.repo_name}} # this folder contains the metadata
+                                                  |
+                                                  |____file.txt #this file will not be templated
+                                                </pre></code>
+                                          </section>
+                                          <section>
+                                          we can use jinja2 templates
+                                          </section>
+                                        </section>
+                          <section>
+                            <section>
+                              <b>Advanced uses of cookiecutter</b>
+                              </section>
+                              <section>
+                                <b>Hooks</b>
+                                <aside class="notes">
+                                  <li>to support other platforms please use python scripts</li>
+                                  <li>if a hook script fails the generation stops and geneted dircry is cleaned up</li>
+                                  </aside>
+                                <p>cat hooks/post_gen_project.sh</p>
+                                  <pre><code class=bash data-trim>
+                                  #!/bin/bash
+                                  USER="{{ cookiecutter.username }}"
+                                  EMAIL="{{ cookiecutter.email }}"
+                                  if [ `which virtualenv|grep virtualenv 2>/dev/null` ]
+                                  then
+                                  virtualenv -p {{ cookiecutter.python_executable }} venv
+                                  else
+                                  {{cookiecutter.python_executable}} -m venv venv
+                                  fi
+                                  source venv/bin/activate
+                                  cd back
+                                  echo "Installing backend dependencies"
+                                  pip install --upgrade pip setuptools
+                                  pip install -r requirements.txt
+                                  pip freeze --local > requirements.txt
+                                  cp environ.py.dist environ.py
+                                  python manage.py migrate --noinput
+                                  {% if cookiecutter.create_superuser == 'yes' %}
+                                  echo "Creating superuper {{ cookiecutter.username }}"
+                                  python manage.py createsuperuser --username {{ cookiecutter.username }} --email {{ cookiecutter.email }}
+                                  {% endif %}
+                                  deactivate
+                                  </pre></code>
+                              </section>
+                              <section>
+                                <b>replay your cookiecutter</b>
+                                <pre><code class=bash data-trim>
+                                  cookiecutter --replay gh:audreyr/cookiecutter-pypackage
+                                  </pre></code>
+
+                              </section>
+
+                              <section>
+                                <b>calling cookiecutter from python</b>
+                                <aside class="notes">
+                                  <li>this can be useful when creating web-frameworks like the ember-cli, django-admin start project</li>
+                                  </aside>
+                                <pre><code class=bash data-trim>
+                                  from cookiecutter.main import cookiecutter
+                                  # Create project from the cookiecutter-pypackage/ template
+                                  cookiecutter('cookiecutter-pypackage/')
+                                  # Create project from the cookiecutter-pypackage.git repo template
+                                  cookiecutter('https://github.com/audreyr/cookiecutter-pypackage.git')
+                                  cookiecutter --replay gh:audreyr/cookiecutter-pypackage
+                                  </pre></code>
+
+                              </section>
+
+                              <section>
+                                <b>Choice variables</b>
+                                <aside class="notes">
+                                  <li>prompt users to make choices</li>
+                                  </aside>
+                                <pre><code class=json data-trim>
+                                {
+                                  "postgresql_version": ["9.6", "9.5", "9.4", "9.3", "9.2"],
+                                  "open_source_license": ["MIT", "BSD", "GPLv3", "Apache Software License 2.0", "Not open source"],
+                                  "js_task_runner": ["Gulp", "Grunt", "None"]
+                                }
+                                  </pre></code>
+
+                                </section>
+                          </section>
+                          <section>
+                            <section>
+                              <b>My select cookiecutter templates</b>
+                            </section>
+                              <section>
+                                <b>cookiecutter pypackage</b>
+
+                                <ul>
+                                <li> Testing setup with ``unittest`` and ``python setup.py test`` or ``py.test``</li>
+                                  <li> Travis-CI_: Ready for Travis Continuous Integration testing</li>
+                                  <li> Tox_ testing: Setup to easily test for Python 2.6, 2.7, 3.3, 3.4, 3.5</li>
+                                  <li> Sphinx_ docs: Documentation ready for generation with, for example, ReadTheDocs_<li>
+                                  <li> Bumpversion_: Pre-configured version bumping with a single command<li>
+                                  <li> Auto-release to PyPI_ when you push a new tag to master (optional)</li>
+                                  <li> Command line interface using Click (optional)</li>
+                                  .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+                                  </ul>
+                                </section>
+                                <section>
+                                  <b>Levit's Django CookieCutter template for Django + Ember apps</b>
+
+                                  <p>[Django](https://www.djangoproject.com/)</p>
+                                  <p> [Django Rest Framework](http://www.django-rest-framework.org/)</p>
+                                  <p>  [Django Filter](https://django-filter.readthedocs.org/en/latest/)</p>
+                                  <p> [Django CORS headers](https://github.com/ottoyiu/django-cors-headers)</p>
+                                  <p>  [Celery](http://www.celeryproject.org/)</p>
+                                  Django Debug Toolbar](http://django-debug-toolbar.readthedocs.org/en/1.4/) and [Django Debug Panel](https://github.com/recamshak/django-debug-panel)
+                                  - [Factory Boy](https://factoryboy.readthedocs.org/en/latest/)
+                                </section>
+                                </section>
+                          <section>
+                            <section>
+                            <b>Demo!</b>
+                            </section>
+
+                              <section>
+                              template1/cookiecutter.json
+                              <pre><code class=json data-trim>
+                                {
+                                    "repo_name": "reponame",
+                                    "full_name": "Buddy Lindsey",
+                                    "config": "wasup"
+                                }
+                                </pre></code>
+                                </section>
+                                <section>
+                                  <pre><code class=bash data-trim>
+                                    mkdir template1/ vim template1//file.txt
+
+                                    Name: {{cookiecutter.full_name}}
+                                    Email: {{cookiecutter.email}}
+                                    Config: {{cookiecutter.config}}
+                                    </pre></code>
+                                </section>
+
+
+
+                          </section>
+
+
+
+
+
+
+
+
+                  </div>
+                </div>
+            <script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
 
 		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+                controls: true,
+				progress: true,
+				history: true,
+				center: true,
 
-		  ga('create', 'UA-43375306-1', 'revealjs.com');
-		  ga('send', 'pageview');
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
 		</script>
-	</body>
+        </body>
 </html>
