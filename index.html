@@ -31,6 +31,7 @@
                               <li>Starting a project involving several technologies can be a bit of a hassle. Using cookiecutter, we're able 
                                 to start our project, download all of our dependencies and install our python and other environments in 
                                 one command</li>
+                              <li>some things always get forgotten until the worst possible moment, get cookiecutter to do all the work.</li>
                             </aside>
 
                         </section>
@@ -280,31 +281,122 @@
                             </section>
                               <section>
                                 <b>cookiecutter pypackage</b>
-
-                                <ul>
-                                <li> Testing setup with ``unittest`` and ``python setup.py test`` or ``py.test``</li>
-                                  <li> Travis-CI_: Ready for Travis Continuous Integration testing</li>
-                                  <li> Tox_ testing: Setup to easily test for Python 2.6, 2.7, 3.3, 3.4, 3.5</li>
-                                  <li> Sphinx_ docs: Documentation ready for generation with, for example, ReadTheDocs_<li>
-                                  <li> Bumpversion_: Pre-configured version bumping with a single command<li>
-                                  <li> Auto-release to PyPI_ when you push a new tag to master (optional)</li>
-                                  <li> Command line interface using Click (optional)</li>
-                                  .. _Cookiecutter: https://github.com/audreyr/cookiecutter
-                                  </ul>
                                 </section>
                                 <section>
-                                  <b>Levit's Django CookieCutter template for Django + Ember apps</b>
+                                  <p> Travis-CI: Ready for Travis Continuous Integration testing</p>
+                                 <pre><code class=python data-trim> 
+                                    # Config file for automatic testing at travis-ci.org
+                                        # This file will be regenerated if you run travis_pypi_setup.py
 
-                                  <p>[Django](https://www.djangoproject.com/)</p>
-                                  <p> [Django Rest Framework](http://www.django-rest-framework.org/)</p>
-                                  <p>  [Django Filter](https://django-filter.readthedocs.org/en/latest/)</p>
-                                  <p> [Django CORS headers](https://github.com/ottoyiu/django-cors-headers)</p>
-                                  <p>  [Celery](http://www.celeryproject.org/)</p>
-                                  Django Debug Toolbar](http://django-debug-toolbar.readthedocs.org/en/1.4/) and [Django Debug Panel](https://github.com/recamshak/django-debug-panel)
-                                  - [Factory Boy](https://factoryboy.readthedocs.org/en/latest/)
+                                    language: python
+                                    python:
+                                      - 3.5
+                                      - 3.4
+                                      - 3.3
+                                      - 2.7
+                                      - 2.6
+
+                                    # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+                                    install: pip install -U tox-travis
+
+                                    # command to run tests, e.g. python setup.py test
+                                    script: tox
+
+                                    {% if cookiecutter.use_pypi_deployment_with_travis == 'y' -%}
+                                    # After you create the Github repo and add it to Travis, run the
+                                    # travis_pypi_setup.py script to finish PyPI deployment setup
+                                    deploy:
+                                      provider: pypi
+                                      distributions: sdist bdist_wheel
+                                      user: {{ cookiecutter.pypi_username }}
+                                      password:
+                                        secure: PLEASE_REPLACE_ME
+                                      on:
+                                        tags: true
+                                        repo: {{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+                                        python: 2.7
+                                    {%- endif %}
+                                      </pre></code>
+                                  .travis.yml
+                                </section>
+                                <section>
+                                  Tox testing: Setup to easily test for Python 2.6, 2.7, 3.3, 3.4, 3.5<Paste>
+																	<pre><code class=python data-trim>
+																	[tox]
+																	envlist = py26, py27, py33, py34, py35, flake8
+
+																	[travis]
+																	python =
+																			3.5: py35
+																			3.4: py34
+																			3.3: py33
+																			2.7: py27
+																			2.6: py26
+
+																	[testenv:flake8]
+																	basepython=python
+																	deps=flake8
+																	commands=flake8 {{ cookiecutter.project_slug }}
+
+																	[testenv]
+																	setenv =
+																			PYTHONPATH = {toxinidir}
+																	{% if cookiecutter.use_pytest == 'y' -%}
+																	deps =
+																			-r{toxinidir}/requirements_dev.txt
+																	commands =
+																			pip install -U pip
+																			py.test --basetemp={envtmpdir}
+																	{% else %}
+																	commands = python setup.py test
+																	{%- endif %}
+																	</pre></code>
+																	tox.ini
+																	</section>
+																	<section>
+																	<pre><code class=bash data-trim>
+																	Get Started!
+																	------------
+
+																	Ready to contribute? Here's how to set up `{{ cookiecutter.project_slug }}` for local development.
+
+																	1. Fork the `{{ cookiecutter.project_slug }}` repo on GitHub.
+																	2. Clone your fork locally::
+
+																			$ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
+
+																			3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
+
+																					$ mkvirtualenv {{ cookiecutter.project_slug }}
+																							$ cd {{ cookiecutter.project_slug }}/
+																									$ python setup.py developk
+																	</pre></code>
+																	CONTRIBUTING.rst
+																	</section>
+																	
+                                <section>
+                                  <b>Levit's Django CookieCutter template for Django + Ember apps</b>
+                                  </section>
+                                  <section>
+                                  <li>Django</li>
+                                  <li>Django Rest Framework</li>
+                                  <li>Django Filter</li>
+                                  <li>Django CORS headers</li>
+                                  <li>Celery</li>
+                                  <li> Django Debug Toolbar and Django Debug Panel</li>
+                                   <li>Factory Boy</li>
+                                   <li>Ember</li>
+                                   <li>ember-django-adapter</li>
+                                   <li>ember-simple-auth</li>
+                                 </section>
                                 </section>
                                 </section>
                           <section>
+                            <section>
+                                These dont match your requirements?
+                                </section>
+                                <section>
+                                </section>
                             <section>
                             <b>Demo!</b>
                             </section>
