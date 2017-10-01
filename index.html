@@ -1,7 +1,7 @@
 <html>
         <head>
                 <link rel="stylesheet" href="css/reveal.css">
-                <link rel="stylesheet" href="css/theme/sky.css">
+                <link rel="stylesheet" href="css/theme/solarized.css">
                		<link rel="stylesheet" href="lib/css/arduino-light.css">
 
         </head>
@@ -9,7 +9,7 @@
                 <div class="reveal">
                         <div class="slides">
                         <section>
-                           <h2>Jumpstart your projects with coockiecutter</h2>
+                           <h2>Jumpstart your projects with cookiecutter</h2>
                             <aside class="notes">
                               <li>talk slowly!!!!!!</li>
                               <li>I would like to thank the organizers</li>
@@ -18,8 +18,8 @@
                               <li>freelancer in django exploring emberjs</li>
                               <li>if there is anyone in this room looking looking for someone with these skill please i want to talk to you</li>
                             </aside>
-                               <p>by</p>
-                                  <p>Humphrey Butau</p>
+                                  <h4>Humphrey Butau</h4>
+																	 @hamub
                         </section>
                         <section>
                           <h2>Have you ever desired a tool that can automate all the boring tasks you repeat when starting a python project?</h2>
@@ -48,7 +48,15 @@
 
                         <section>
                          <img data-src="css/img/cargo.jpg">
+<aside class="notes">The name derives from the belief which began among Melanesians in the late 19th and early 20th century that various ritualistic acts such as the building of an airplane runway will result in the appearance of material wealth, particularly highly desirable Western goods (i.e., "cargo"), via Western airplanes.[1][2]
+</aside>
                         </section>
+                        <section>
+                          <blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo; Cargo cult programming is a style of computer programming characterized by the ritual inclusion of code or program structures that serve no real purpose.
+						&rdquo;
+					</blockquote><Paste>
+</section>
 
                         <section>
                           <h2>Cookiecutter!</h2>
@@ -191,15 +199,79 @@
                                               _____cookiecutter.json
                                               |
                                               |
-                                              _____{{cookiecutter.repo_name}} # this folder contains the metadata
+                                              _____{{cookiecutter.project_name}} # this folder contains the metadata
                                                   |
                                                   |____file.txt #this file will not be templated
                                                 </pre></code>
                                           </section>
-                                          <section>
+
+                                            <section>
+                                              cookiecutter.json 
+                                              <aside class="notes">
+                                                contains the context variables
+                                                </aside>
+                                              <pre><code class=json data-trim>
+                                              {
+                                                  "project_name": "Project name",
+                                                  "author": "Your Name",
+                                                  "username": "{{ cookiecutter.author|lower() }}",
+                                                  "email": "you@domain.com",
+                                                  "create_superuser": "no",
+                                                  "repo_name": "{{ cookiecutter.project_name|replace(' ', '_')|lower() }}",
+                                                  "module_prefix": "{{ cookiecutter.repo_name|replace('_', '-') }}",
+                                                  "python_executable": "python3.5",
+                                                  "bootstrap_version": "3.3.7",
+                                                  "fontawesome_version": "4.7.0"
+                                              }
+                                              </pre></code>
+                                              </section>
+					      <section>
+						      directory listing of a cookiecutter template
+						      <pre><code class=bash data-trim>
+						cc_project_app_drf/
+						├── COC.md
+						├── COMMIT_EMOJI_CHEATSHEET.md
+						├── cookiecutter.json
+						├── {{cookiecutter.repo_name}}
+						│   ├── COC.md
+						│   ├── {{cookiecutter.repo_name}}
+						│   │   ├── api_urls.py
+						│   │   ├── celery.py
+						│   │   ├── __init__.py
+						│   │   ├── migrations
+						│   │   │   └── __init__.py
+						│   │   ├── models.py
+						│   │   ├── serializers.py
+						│   │   ├── tests
+						│   │   │   ├── base.py
+						│   │   │   ├── factories.py
+						│   │   │   ├── __init__.py
+						│   │   │   └── test_api.py
+						│   │   ├── views.py
+						│   │   └── wsgi.py
+						│   ├── environ.py.dist
+						│   ├── gitignore.txt
+						 </pre></code>
+						 </section>
+                                              <section>
                                           we can use jinja2 templates
                                           </section>
-                                        </section>
+					  <section>
+				  <pre><code class=bash data-trim>
+				{% if cookiecutter.create_superuser == 'yes' %}
+				  echo "Creating superuper {{ cookiecutter.username }}"
+				  python manage.py createsuperuser --username {{ cookiecutter.username }} --email {{ cookiecutter.email }}
+				{% endif %}v 
+				  </pre></code>
+                                 </section>
+				 <section>
+				 <p>"username": "{{ cookiecutter.author<span class="fragment highlight-red">|lower()</span>}}</p>
+	 <p>"module_prefix": "{{cookiecutter.repo_name<span class="fragment highlight-blue">|replace('_', '-')</span>}}</p>
+
+
+
+				 </section>
+				 </section>
                           <section>
                             <section>
                               <b>Advanced uses of cookiecutter</b>
@@ -378,6 +450,8 @@
                                   <b>Levit's Django CookieCutter template for Django + Ember apps</b>
                                   </section>
                                   <section>
+																	<p>
+                                    <ul class="org-ul">
                                   <li>Django</li>
                                   <li>Django Rest Framework</li>
                                   <li>Django Filter</li>
@@ -388,6 +462,8 @@
                                    <li>Ember</li>
                                    <li>ember-django-adapter</li>
                                    <li>ember-simple-auth</li>
+																	</ul>
+																	</p>
                                  </section>
                                 </section>
                                 </section>
@@ -421,6 +497,20 @@
                                     </pre></code>
                                 </section>
 
+
+<section id="sec-15">
+ <h2>Questions?</h2>
+<p>
+  Thanks for listening!
+</p>
+
+<p>
+  hbutau35@gmail.com
+</p>
+
+<p>
+  @hamub
+</p>
 
 
                           </section>
