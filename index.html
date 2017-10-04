@@ -254,7 +254,13 @@
 						 </pre></code>
 						 </section>
                                               <section>
-                                          we can use jinja2 templates
+                                                <h2> we can use jinja2 templates</h2>
+                                          <img data-src="css/img/jinja.png">
+                                          <aside class="notes">
+                                            The if statement in Jinja is comparable with the Python if statement. In the simplest
+                                            form, you can use it to test if a variable is defined, not empty and not false:
+                                            </aside>
+
                                           </section>
 					  <section>
 				  <pre><code class=bash data-trim>
@@ -263,13 +269,29 @@
 				  python manage.py createsuperuser --username {{ cookiecutter.username }} --email {{ cookiecutter.email }}
 				{% endif %}v 
 				  </pre></code>
+            <aside class="notes">
+              Jinja2 is a full featured template engine for Python. It has full unicode support, 
+              an optional integrated sandboxed execution environment, widely used and BSD licensed.
+              </aside>
                                  </section>
 				 <section>
 				 <p>"username": "{{ cookiecutter.author<span class="fragment highlight-red">|lower()</span>}}</p>
 	 <p>"module_prefix": "{{cookiecutter.repo_name<span class="fragment highlight-blue">|replace('_', '-')</span>}}</p>
+   <aside class="notes">
+     <li>Variables can be modified by filters. Filters are separated from the variable by a pipe</li>
+     <li>Return a copy of the value with all occurrences of a substring replaced with a new one</li>
+     <li>Other filters are: capitalize, join, 
+     </aside>
 
 
 
+				 </section>
+         <section>
+           <h2>Escaping</h2>
+           <p><span class="fragment highlight-red"> {% raw %}</span>{% extends "base.html" %}<span class="fragment highlight-red">{% endraw %}</span></p>
+           <aside class="notes">
+             Jinja ignore parts it would otherwise handle as variables or blocks
+             </aside>
 				 </section>
 				 </section>
                           <section>
@@ -279,8 +301,9 @@
                               <section>
                                 <b>Hooks</b>
                                 <aside class="notes">
+                                  <li>run before and after a project is generated</li>
                                   <li>to support other platforms please use python scripts</li>
-                                  <li>if a hook script fails the generation stops and geneted dircry is cleaned up</li>
+                                  <li>if a hook script fails the generation stops and generated directory is cleaned up</li>
                                   </aside>
                                 <p>cat hooks/post_gen_project.sh</p>
                                   <pre><code class=bash data-trim>
