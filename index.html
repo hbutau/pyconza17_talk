@@ -46,11 +46,7 @@
 
                         </section>
 
-                        <section>
-                         <img data-src="css/img/cargo.jpg">
-<aside class="notes">The name derives from the belief which began among Melanesians in the late 19th and early 20th century that various ritualistic acts such as the building of an airplane runway will result in the appearance of material wealth, particularly highly desirable Western goods (i.e., "cargo"), via Western airplanes.[1][2]
-</aside>
-                        </section>
+                        
                         <section>
                           <blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
 						&ldquo; Cargo cult programming is a style of computer programming characterized by the ritual inclusion of code or program structures that serve no real purpose.
@@ -62,6 +58,7 @@
                           <h2>Cookiecutter!</h2>
                               <aside class="notes">
                               <li>cookicutter is a command line project templating tool written in python</li>
+                              <li>authord by Audre greenfield, Michael Joseph</li>
                             </aside>
 
                           </section>
@@ -132,13 +129,14 @@
                                     </pre></code>
                                       </section>
                                       <section>
-                                          you can also specify local cookiecutters:
+                                          you can also specify local cookiecutter templates
                                         <pre><code class=bash data-trim>
                                             $ cookiecutter ~/.cookiecutters/cookiecutter-pypackage/
                                             $ cookicutter cookiecutter-pypackage
                                             </pre></code>
                                         </section>
                                       <section>
+                                        Or call it from within python
                                         <pre><code class=bash data-trim>
                                           (pycon) ~  $ python
                                           Python 3.5.2 (default, Nov 17 2016, 17:05:23)
@@ -231,38 +229,15 @@
                                               </section>
 					      <section>
 						      directory listing of a cookiecutter template
-						      <pre><code class=bash data-trim>
-						cc_project_app_drf/
-						├── COC.md
-						├── COMMIT_EMOJI_CHEATSHEET.md
-						├── cookiecutter.json
-						├── {{cookiecutter.repo_name}}
-						│   ├── COC.md
-						│   ├── {{cookiecutter.repo_name}}
-						│   │   ├── api_urls.py
-						│   │   ├── celery.py
-						│   │   ├── __init__.py
-						│   │   ├── migrations
-						│   │   │   └── __init__.py
-						│   │   ├── models.py
-						│   │   ├── serializers.py
-						│   │   ├── tests
-						│   │   │   ├── base.py
-						│   │   │   ├── factories.py
-						│   │   │   ├── __init__.py
-						│   │   │   └── test_api.py
-						│   │   ├── views.py
-						│   │   └── wsgi.py
-						│   ├── environ.py.dist
-						│   ├── gitignore.txt
-						 </pre></code>
+                                                   <img data-src="css/img/listing.png">
+
 						 </section>
                                               <section>
                                                 <h2> we can use jinja2 templates</h2>
                                           <img data-src="css/img/jinja.png">
                                           <aside class="notes">
-                                            The if statement in Jinja is comparable with the Python if statement. In the simplest
-                                            form, you can use it to test if a variable is defined, not empty and not false:
+                                            Jinja2 is a full featured template engine for Python. It has full unicode support, 
+                                            an optional integrated sandboxed execution environment, widely used and BSD licensed.
                                             </aside>
 
                                           </section>
@@ -274,8 +249,8 @@
 				{% endif %}v 
 				  </pre></code>
             <aside class="notes">
-              Jinja2 is a full featured template engine for Python. It has full unicode support, 
-              an optional integrated sandboxed execution environment, widely used and BSD licensed.
+              The if statement in Jinja is comparable with the Python if statement. In the simplest
+              form, you can use it to test if a variable is defined, not empty and not false:
               </aside>
                                  </section>
 				 <section>
@@ -380,6 +355,11 @@
                             </section>
                               <section>
                                 <b>cookiecutter pypackage</b>
+
+                                <aside class="notes">
+                                  <li>a template for a python package</li>
+                                  <li>62 contributers</li>
+                                  </aside>
                                 </section>
                                 <section>
                                   <p> Travis-CI: Ready for Travis Continuous Integration testing</p>
@@ -498,7 +478,7 @@
                             <section>
                               <h2> These dont match your requirements?</h2>
                                 </section> <section>
-                                <h2> There is a pantry full of cookiecutters here:</h2>  </p>https://github.com/audreyr/cookiecutter</p>
+                                <h2> There is a pantry full of cookiecutter templates here:</h2>  </p>https://github.com/audreyr/cookiecutter</p>
                                 </section>
 
                                 <section>
@@ -515,23 +495,34 @@
                             </section>
 
                               <section>
-                              template1/cookiecutter.json
-                              <pre><code class=json data-trim>
-                                {
-                                    "repo_name": "reponame",
-                                    "full_name": "Buddy Lindsey",
-                                    "config": "wasup"
-                                }
-                                </pre></code>
+                             Creating the template directory 
+                              <pre><code class=bash data-trim>
+                               mkdir template
+                               </pre></code>
                                 </section>
                                 <section>
                                   <pre><code class=bash data-trim>
-                                    mkdir template1/ vim template1//file.txt
+                                  touch template/cookiecutter.json
+                                  </pre></code>
+                                </section>
+                                <section>
+                                  <pre><code class=json data-trim>
+                                  {
+                                    "repo_name": "repo name",
+                                    "email": "your email",
+                                    "full_name": "yourname",
+                                    "description": "what is this project about"
+                                  }
 
-                                    Name: {{cookiecutter.full_name}}
-                                    Email: {{cookiecutter.email}}
-                                    Config: {{cookiecutter.config}}
-                                    </pre></code>
+                                  </pre></code>
+                                <aside class="notes">
+                                  Populating our json file with key value pairs
+                                  </aside>
+                                </section>
+                                <section>
+                                  <pre><code class=bash data-trim>
+                                  mkdir template/{{cookiecutter.repo_name}}
+                                  </pre></code>
                                 </section>
 
 
